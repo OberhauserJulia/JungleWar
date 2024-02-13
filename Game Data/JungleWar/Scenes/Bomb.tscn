@@ -1,0 +1,95 @@
+[gd_scene load_steps=13 format=3 uid="uid://chd2jfg3yxctv"]
+
+[ext_resource type="Script" path="res://Scripts/Bomb.gd" id="1_x1eg0"]
+[ext_resource type="Texture2D" uid="uid://ces72ryk01jss" path="res://Assets/explosions/small_0.png" id="2_x7cq5"]
+[ext_resource type="Texture2D" uid="uid://fvh35acatl8q" path="res://Assets/explosions/small_1.png" id="3_muijo"]
+[ext_resource type="Texture2D" uid="uid://cw35m8t5b7gb0" path="res://Assets/explosions/small_2.png" id="4_4dcyi"]
+[ext_resource type="Texture2D" uid="uid://bl8ac4mnh1c4m" path="res://Assets/explosions/middle_part.png" id="5_fxik2"]
+[ext_resource type="Texture2D" uid="uid://b24bo62re8e15" path="res://Assets/explosions/extra_small_0.png" id="6_a0ln6"]
+[ext_resource type="Texture2D" uid="uid://d3g5027djtuhd" path="res://Assets/explosions/Venuspflanze 2 1.png" id="7_y5x61"]
+[ext_resource type="Texture2D" uid="uid://bklsobqmnbotm" path="res://Assets/explosions/Venuspflanze 2 2.png" id="8_ihpsf"]
+[ext_resource type="Texture2D" uid="uid://3tdda3bebohj" path="res://Assets/explosions/Venuspflanze 2 3.png" id="9_72afg"]
+[ext_resource type="AudioStream" uid="uid://dxx8kkhxehvpu" path="res://Assets/music-sfx/BombDrop.mp3" id="10_6sqkq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8bjjo"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3u6jc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_x7cq5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_muijo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4dcyi")
+}],
+"loop": false,
+"name": &"explosion_large",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_x7cq5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_muijo")
+}],
+"loop": false,
+"name": &"explosion_medium",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_fxik2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_a0ln6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_x7cq5")
+}],
+"loop": false,
+"name": &"explosion_small",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_y5x61")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ihpsf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_72afg")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}]
+
+[node name="Bomb" type="Area2D"]
+z_index = 1
+script = ExtResource("1_x1eg0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8bjjo")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_3u6jc")
+animation = &"explosion_large"
+
+[node name="GameMusic" type="Node2D" parent="."]
+
+[node name="Explosion_SFX" type="AudioStreamPlayer2D" parent="GameMusic"]
+stream = ExtResource("10_6sqkq")
+volume_db = 5.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

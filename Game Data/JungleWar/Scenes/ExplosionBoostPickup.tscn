@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://bhiisil2fvx8m"]
+
+[ext_resource type="Script" path="res://Scripts/ExplosionBoostPickup.gd" id="1_gxb5j"]
+[ext_resource type="Texture2D" uid="uid://cr5ib6547g75g" path="res://Assets/pickups/power_up_front.png" id="2_8mlk6"]
+[ext_resource type="Texture2D" uid="uid://dekgqxe4omnmo" path="res://Assets/pickups/power_up_45_degrees.png" id="3_jbafa"]
+[ext_resource type="Texture2D" uid="uid://2bielkdr3xw" path="res://Assets/pickups/power_up_side.png" id="4_prgxf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ony72"]
+radius = 7.07
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pkbtq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8mlk6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jbafa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_prgxf")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 4.0
+}]
+
+[node name="ExplosionBoostPickup" type="Area2D"]
+script = ExtResource("1_gxb5j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ony72")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_pkbtq")
+animation = &"idle"
+frame = 1
+frame_progress = 0.089399
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

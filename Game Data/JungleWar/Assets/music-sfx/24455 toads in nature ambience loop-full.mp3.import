@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c2v7bd2pptb3d"
+path="res://.godot/imported/24455 toads in nature ambience loop-full.mp3-0f445be93b33c6c805a135fcf18e6f19.mp3str"
+
+[deps]
+
+source_file="res://Assets/JungleWar/music_sfx/24455 toads in nature ambience loop-full.mp3"
+dest_files=["res://.godot/imported/24455 toads in nature ambience loop-full.mp3-0f445be93b33c6c805a135fcf18e6f19.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

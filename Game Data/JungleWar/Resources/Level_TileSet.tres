@@ -1,0 +1,34 @@
+[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://dx4yvmctebweo"]
+
+[ext_resource type="Texture2D" uid="uid://coulpxl2qp7fi" path="res://Assets/map_objects/16px/floor.png" id="1_mtnnr"]
+[ext_resource type="Texture2D" uid="uid://0rm4sx7kcvcv" path="res://Assets/map_objects/16px/breakable_block.png" id="2_lpnay"]
+[ext_resource type="Texture2D" uid="uid://234wk43gl4yi" path="res://Assets/map_objects/16px/unbreakable_block.png" id="3_qnuf5"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ecvpi"]
+resource_name = "BACKGROUND_TILE"
+texture = ExtResource("1_mtnnr")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w3xa4"]
+resource_name = "BREAKABLE_TILE"
+texture = ExtResource("2_lpnay")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3oc0l"]
+resource_name = "UNBREAKABLE_TILE"
+texture = ExtResource("3_qnuf5")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[resource]
+physics_layer_0/collision_layer = 1
+sources/2 = SubResource("TileSetAtlasSource_3oc0l")
+sources/1 = SubResource("TileSetAtlasSource_w3xa4")
+sources/0 = SubResource("TileSetAtlasSource_ecvpi")

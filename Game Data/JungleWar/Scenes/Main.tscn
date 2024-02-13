@@ -1,0 +1,878 @@
+[gd_scene load_steps=23 format=3 uid="uid://bb6k5is7lnmf8"]
+
+[ext_resource type="Script" path="res://Scripts/Main.gd" id="1_umica"]
+[ext_resource type="FontFile" uid="uid://v660se06ixrr" path="res://Assets/fonts/Stacked pixel.ttf" id="2_g36a5"]
+[ext_resource type="StyleBox" uid="uid://hcnj7aqujk4r" path="res://Styles/Normal_Button_Style.tres" id="3_458e6"]
+[ext_resource type="FontFile" uid="uid://ds7hjvwew2ekh" path="res://Assets/fonts/Covenant5x5.ttf" id="3_f8uqq"]
+[ext_resource type="StyleBox" uid="uid://kj0aqmit2b4n" path="res://Styles/Hover_Button_Style.tres" id="4_wudbp"]
+[ext_resource type="Texture2D" uid="uid://ch865q514ayck" path="res://Assets/ui_items/Hilfeseite.png" id="6_akps1"]
+[ext_resource type="Texture2D" uid="uid://drdqugb0wuxfx" path="res://Assets/ui_items/info_icon.png" id="6_lojmr"]
+[ext_resource type="FontFile" uid="uid://digbq0mlkbh3p" path="res://Assets/fonts/Schrödinger.ttf" id="7_26pww"]
+[ext_resource type="Script" path="res://Scripts/CharacterEdit1.gd" id="9_ldk8g"]
+[ext_resource type="Texture2D" uid="uid://cpm5wp1lwaosk" path="res://Assets/players/Ladybug/Ladybug_character_edit.png" id="10_dg327"]
+[ext_resource type="Shader" path="res://Shader/Player1Shader.gdshader" id="10_m0515"]
+[ext_resource type="Texture2D" uid="uid://b8h05xj86wi4p" path="res://Assets/players/Spinne/Spinne_up/Spinne hoch 1.png" id="14_a21a5"]
+[ext_resource type="Script" path="res://Scripts/Character1.gd" id="15_4dmap"]
+[ext_resource type="AudioStream" uid="uid://bsvi2bfkkdnqr" path="res://Assets/music-sfx/BackgroundMenue.mp3" id="16_d2sbf"]
+[ext_resource type="Shader" path="res://Shader/Player2Shader.gdshader" id="16_jm1m5"]
+[ext_resource type="Script" path="res://Scripts/CharacterEdit2.gd" id="16_yocgf"]
+[ext_resource type="AudioStream" uid="uid://thhgo4x7qxiv" path="res://Assets/music-sfx/Button Click.mp3" id="17_mngfd"]
+[ext_resource type="Script" path="res://Scripts/Character2.gd" id="21_o3sib"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jxy6y"]
+shader = ExtResource("10_m0515")
+shader_parameter/newColorBody = Color(0.898039, 0.231373, 0.266667, 1)
+shader_parameter/oldColorBody = Color(0.898039, 0.231373, 0.266667, 1)
+shader_parameter/newColorEyes = Color(1, 1, 1, 1)
+shader_parameter/oldColorEyes = Color(1, 1, 1, 1)
+shader_parameter/newColor1 = Color(0.917647, 0.729412, 0.309804, 1)
+shader_parameter/oldColor1 = Color(0.917647, 0.729412, 0.309804, 1)
+shader_parameter/newColor2 = null
+shader_parameter/oldColor2 = null
+shader_parameter/precision = 0.1
+shader_parameter/onlyPickMainColor = null
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bpis1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_dg327")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4s0hf"]
+shader = ExtResource("16_jm1m5")
+shader_parameter/newColorBody = Color(1, 0.85098, 0, 1)
+shader_parameter/oldColorBody = Color(1, 0.85098, 0, 1)
+shader_parameter/newColorEyes = Color(1, 1, 1, 1)
+shader_parameter/oldColorEyes = Color(1, 1, 1, 1)
+shader_parameter/newColor1 = Color(1, 0.435294, 0, 1)
+shader_parameter/oldColor1 = Color(1, 0.435294, 0, 1)
+shader_parameter/newColor2 = null
+shader_parameter/oldColor2 = null
+shader_parameter/precision = 0.1
+shader_parameter/onlyPickMainColor = null
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_twp0s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_a21a5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Main" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_umica")
+
+[node name="GamePanel" type="CanvasLayer" parent="."]
+
+[node name="StartScreen" type="ColorRect" parent="GamePanel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0470588, 0.0470588, 0.0470588, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="GameTitle" type="ColorRect" parent="GamePanel/StartScreen"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -350.0
+offset_top = 20.0
+offset_right = 350.0
+offset_bottom = 220.0
+grow_horizontal = 2
+color = Color(0.984314, 0.572549, 0.168627, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Container" type="ColorRect" parent="GamePanel/StartScreen/GameTitle"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -345.0
+offset_top = -95.0
+offset_right = 345.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.196078, 0.45098, 0.270588, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="GamePanel/StartScreen/GameTitle/Container"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.984314, 0.572549, 0.168627, 1)
+theme_override_colors/font_shadow_color = Color(0.0470588, 0.0470588, 0.0470588, 1)
+theme_override_fonts/font = ExtResource("2_g36a5")
+theme_override_font_sizes/font_size = 100
+text = "Jungle
+War"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="NewGameButton" type="Button" parent="GamePanel/StartScreen"]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 250.0
+offset_right = 820.0
+offset_bottom = 340.0
+theme_override_colors/font_color = Color(0.984314, 0.572549, 0.168627, 1)
+theme_override_colors/font_hover_color = Color(0.0470588, 0.0470588, 0.0470588, 1)
+theme_override_fonts/font = ExtResource("3_f8uqq")
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = ExtResource("3_458e6")
+theme_override_styles/hover = ExtResource("4_wudbp")
+text = "NEW GAME"
+metadata/_edit_use_anchors_ = true
+
+[node name="LoadGameButton" type="Button" parent="GamePanel/StartScreen"]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 360.0
+offset_right = 820.0
+offset_bottom = 450.0
+theme_override_colors/font_color = Color(0.984314, 0.572549, 0.168627, 1)
+theme_override_colors/font_hover_color = Color(0.984314, 0.572549, 0.168627, 1)
+theme_override_fonts/font = ExtResource("3_f8uqq")
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = ExtResource("3_458e6")
+theme_override_styles/hover = ExtResource("3_458e6")
+keep_pressed_outside = true
+text = "LOAD GAME"
+metadata/_edit_use_anchors_ = true
+
+[node name="ExitGameButton" type="Button" parent="GamePanel/StartScreen"]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 470.0
+offset_right = 820.0
+offset_bottom = 560.0
+theme_override_colors/font_color = Color(0.984314, 0.572549, 0.168627, 1)
+theme_override_colors/font_hover_color = Color(0.0470588, 0.0470588, 0.0470588, 1)
+theme_override_fonts/font = ExtResource("3_f8uqq")
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = ExtResource("3_458e6")
+theme_override_styles/hover = ExtResource("4_wudbp")
+text = "EXIT"
+metadata/_edit_use_anchors_ = true
+
+[node name="LevelInfo" type="ColorRect" parent="GamePanel/StartScreen"]
+layout_mode = 1
+offset_left = 320.0
+offset_top = 580.0
+offset_right = 820.0
+offset_bottom = 620.0
+color = Color(0.196078, 0.45098, 0.270588, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="GamePanel/StartScreen/LevelInfo"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.984314, 0.572549, 0.168627, 1)
+theme_override_fonts/font = ExtResource("3_f8uqq")
+theme_override_font_sizes/font_size = 25
+text = "LAST SAVED LEVEL"
+
+[node name="GameInfoButton" type="Button" parent="GamePanel/StartScreen"]
+layout_mode = 0
+offset_left = 1030.0
+offset_top = 525.0
+offset_right = 1538.0
+offset_bottom = 1033.0
+scale = Vector2(0.2, 0.2)
+icon = ExtResource("6_lojmr")
+metadata/_edit_use_anchors_ = true
+
+[node name="GameInfoScreen" type="ColorRect" parent="GamePanel/StartScreen"]
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="GamePanel/StartScreen/GameInfoScreen"]
+texture_filter = 1
+position = Vector2(20, 20)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("6_akps1")
+
+[node name="CloseButton" type="Button" parent="GamePanel/StartScreen/GameInfoScreen"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 464.0
+offset_top = -292.0
+offset_right = 544.0
+offset_bottom = -212.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_26pww")
+theme_override_font_sizes/font_size = 50
+text = "x"
+
+[node name="MapSizePopup" type="Popup" parent="GamePanel/StartScreen"]
+size = Vector2i(1152, 648)
+
+[node name="Border" type="ColorRect" parent="GamePanel/StartScreen/MapSizePopup"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.32549, 0.654902, 0.309804, 1)
+
+[node name="Container" type="ColorRect" parent="GamePanel/StartScreen/MapSizePopup/Border"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -571.0
+offset_top = -319.0
+offset_right = 571.0
+offset_bottom = 319.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0470588, 0.0470588, 0.0470588, 1)
+
+[node name="MapLabel" type="Label" parent="GamePanel/StartScreen/MapSizePopup/Border/Container"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -216.0
+offset_top = -129.0
+offset_right = 216.0
+offset_bottom = -86.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_26pww")
+theme_override_font_sizes/font_size = 40
+text = "Set Map Size:"
+
+[node name="MapSizeHeightTextEdit" type="TextEdit" parent="GamePanel/StartScreen/MapSizePopup/Border/Container"]
+layout_mode = 0
+offset_left = 362.0
+offset_top = 250.0
+offset_right = 762.0
+offset_bottom = 330.0
+placeholder_text = "Height"
+
+[node name="MapSizeWidthTextEdit" type="TextEdit" parent="GamePanel/StartScreen/MapSizePopup/Border/Container"]
+layout_mode = 0
+offset_left = 362.0
+offset_top = 335.0
+offset_right = 762.0
+offset_bottom = 415.0
+placeholder_text = "Width"
+
+[node name="ErrorLabel" type="Label" parent="GamePanel/StartScreen/MapSizePopup/Border/Container"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -685.0
+offset_top = -86.0
+offset_right = 685.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.423529, 0.423529, 0.423529, 1)
+theme_override_fonts/font = ExtResource("7_26pww")
+theme_override_font_sizes/font_size = 25
+text = "Please select a height greater than 4 and less than 18 and a width greater
+than 4 and less than 37"
+horizontal_alignment = 1
+
+[node name="StartButton" type="Button" parent="GamePanel/StartScreen/MapSizePopup/Border/Container"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -209.0
+offset_top = 111.0
+offset_right = 191.0
+offset_bottom = 211.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_f8uqq")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = ExtResource("3_458e6")
+theme_override_styles/hover = ExtResource("4_wudbp")
+text = "START GAME"
+
+[node name="CloseButtonMapSize" type="Button" parent="GamePanel/StartScreen/MapSizePopup/Border/Container"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -80.0
+offset_bottom = 80.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_26pww")
+theme_override_font_sizes/font_size = 50
+text = "x"
+
+[node name="GameModePopup" type="Popup" parent="GamePanel/StartScreen"]
+size = Vector2i(1152, 648)
+
+[node name="Border" type="ColorRect" parent="GamePanel/StartScreen/GameModePopup"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.32549, 0.654902, 0.309804, 1)
+
+[node name="Container" type="ColorRect" parent="GamePanel/StartScreen/GameModePopup/Border"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -571.0
+offset_top = -319.0
+offset_right = 571.0
+offset_bottom = 319.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0470588, 0.0470588, 0.0470588, 1)
+
+[node name="Label" type="Label" parent="GamePanel/StartScreen/GameModePopup/Border/Container"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -216.0
+offset_top = -129.0
+offset_right = 216.0
+offset_bottom = -86.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_26pww")
+theme_override_font_sizes/font_size = 40
+text = "CHOOSE A GAME MODE:"
+
+[node name="NormalModeButton" type="Button" parent="GamePanel/StartScreen/GameModePopup/Border/Container"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -209.0
+offset_top = -50.0
+offset_right = 191.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_f8uqq")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = ExtResource("3_458e6")
+theme_override_styles/hover = ExtResource("4_wudbp")
+text = "NORMAL"
+
+[node name="BattleModeButton" type="Button" parent="GamePanel/StartScreen/GameModePopup/Border/Container"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -209.0
+offset_top = 81.0
+offset_right = 191.0
+offset_bottom = 181.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_f8uqq")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = ExtResource("3_458e6")
+theme_override_styles/hover = ExtResource("4_wudbp")
+text = "BATTLE"
+
+[node name="CloseButtonGameMode" type="Button" parent="GamePanel/StartScreen/GameModePopup/Border/Container"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -80.0
+offset_bottom = 80.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_26pww")
+theme_override_font_sizes/font_size = 50
+text = "x"
+
+[node name="CharacterEditCharakter1" type="Popup" parent="GamePanel/StartScreen" node_paths=PackedStringArray("EyeColorPicker_1", "BodyColorPicker_1", "BodyDetailPicker1_1", "BodyDetailPicker2_1")]
+size = Vector2i(1152, 648)
+script = ExtResource("9_ldk8g")
+EyeColorPicker_1 = NodePath("Border/Container/Links/Farbe1/HBoxContainer/1EyeColorPicker")
+BodyColorPicker_1 = NodePath("Border/Container/Links/Farbe2/HBoxContainer/1BodyColorPicker")
+BodyDetailPicker1_1 = NodePath("Border/Container/Rechts/Farbe3/HBoxContainer/1BodyDetailPicker1")
+BodyDetailPicker2_1 = NodePath("Border/Container/Rechts/Farbe4/HBoxContainer/1BodyDetailPicker2")
+
+[node name="Border" type="ColorRect" parent="GamePanel/StartScreen/CharacterEditCharakter1"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.32549, 0.654902, 0.309804, 1)
+
+[node name="Container" type="ColorRect" parent="GamePanel/StartScreen/CharacterEditCharakter1/Border"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -571.0
+offset_top = -319.0
+offset_right = 571.0
+offset_bottom = 319.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0470588, 0.0470588, 0.0470588, 1)
+
+[node name="MapLabel" type="Label" parent="GamePanel/StartScreen/CharacterEditCharakter1/Border/Container"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -216.0
+offset_top = -129.0
+offset_right = 216.0
+offset_bottom = -86.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_26pww")
+theme_override_font_sizes/font_size = 40
+text = "Edit Character 1:"
+horizontal_alignment = 1
+
+[node name="Links" type="VBoxContainer" parent="GamePanel/StartScreen/CharacterEditCharakter1/Border/Container"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 300.5
+offset_right = 357.0
+offset_bottom = 434.5
+
+[node name="Farbe1" type="MarginContainer" parent="GamePanel/StartScreen/CharacterEditCharakter1/Border/Container/Links"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GamePanel/StartScreen/CharacterEditCharakter1/Border/Container/Links/Farbe1"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GamePanel/StartScreen/CharacterEditCharakter1/Border/Container/Links/Farbe1/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_26pww")
+theme_override_font_sizes/font_size = 45
+text = "Eye Color"
+
+[node name="1EyeColorPicker" type="ColorPickerButton" parent="GamePanel/StartScreen/CharacterEditCharakter1/Border/Container/Links/Farbe1/HBoxContainer"]
+layout_mode = 2
+text = "llllllllI"
+color = Color(1, 1, 1, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="GamePanel/StartScreen/CharacterEditCharakter1/Border/Container/Links"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Farbe2" type="MarginContainer" parent="GamePanel/StartScreen/CharacterEditCharakter1/Border/Container/Links"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GamePanel/StartScreen/CharacterEditCharakter1/Border/Container/Links/Farbe2"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="GamePanel/StartScreen/CharacterEditCharakter1/Border/Container/Links/Farbe2/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_26pww")
+theme_override_font_sizes/font_size = 45
+text = "Body Color"
+
+[node name="1BodyColorPicker" type="ColorPickerButton" parent="GamePanel/StartScreen/CharacterEditCharakter1/Border/Container/Links/Farbe2/HBoxContainer"]
+layout_mode = 2
+text = "llllllllI"
+color = Color(0.898039, 0.231373, 0.266667, 1)
+
+[node name="Rechts" type="VBoxContainer" parent="GamePanel/StartScreen/CharacterEditCharakter1/Border/Container"]
+layout_mode = 0
+offset_left = 757.0
+offset_top = 300.5
+offset_right = 1049.0
+offset_bottom = 434.5
+
+[node name="Farbe3" type="MarginContainer" parent="GamePanel/StartScreen/CharacterEditCharakter1/Border/Container/Rechts"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GamePanel/StartScreen/CharacterEditCharakter1/Border/Container/Rechts/Farbe3"]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="GamePanel/StartScreen/CharacterEditCharakter1/Border/Container/Rechts/Farbe3/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_26pww")
+theme_override_font_sizes/font_size = 45
+text = "Body Detail"
+
+[node name="1BodyDetailPicker1" type="ColorPickerButton" parent="GamePanel/StartScreen/CharacterEditCharakter1/Border/Container/Rechts/Farbe3/HBoxContainer"]
+layout_mode = 2
+text = "llllllllI"
+color = Color(0.917647, 0.729412, 0.309804, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="GamePanel/StartScreen/CharacterEditCharakter1/Border/Container/Rechts"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Farbe4" type="MarginContainer" parent="GamePanel/StartScreen/CharacterEditCharakter1/Border/Container/Rechts"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GamePanel/StartScreen/CharacterEditCharakter1/Border/Container/Rechts/Farbe4"]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="GamePanel/StartScreen/CharacterEditCharakter1/Border/Container/Rechts/Farbe4/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_26pww")
+theme_override_font_sizes/font_size = 45
+text = "Body Detail"
+
+[node name="1BodyDetailPicker2" type="ColorPickerButton" parent="GamePanel/StartScreen/CharacterEditCharakter1/Border/Container/Rechts/Farbe4/HBoxContainer"]
+layout_mode = 2
+text = "llllllllI"
+
+[node name="ContinueButton" type="Button" parent="GamePanel/StartScreen/CharacterEditCharakter1/Border/Container"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -209.0
+offset_top = 181.0
+offset_right = 191.0
+offset_bottom = 281.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_f8uqq")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = ExtResource("3_458e6")
+theme_override_styles/hover = ExtResource("4_wudbp")
+text = "SAVE"
+
+[node name="Charakter1" type="AnimatedSprite2D" parent="GamePanel/StartScreen/CharacterEditCharakter1/Border/Container"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_jxy6y")
+position = Vector2(555, 366.5)
+scale = Vector2(7, 7)
+sprite_frames = SubResource("SpriteFrames_bpis1")
+script = ExtResource("15_4dmap")
+
+[node name="CloseButtonCharakterEdit1" type="Button" parent="GamePanel/StartScreen/CharacterEditCharakter1"]
+anchors_preset = -1
+anchor_left = 0.930556
+anchor_right = 1.0
+anchor_bottom = 0.123457
+offset_left = -5.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = 5.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_26pww")
+theme_override_font_sizes/font_size = 50
+text = "x"
+metadata/_edit_use_anchors_ = true
+
+[node name="CharacterEditCharakter2" type="Popup" parent="GamePanel/StartScreen" node_paths=PackedStringArray("EyeColorPicker_2", "BodyColorPicker_2", "BodyDetailPicker1_2", "BodyDetailPicker2_2")]
+size = Vector2i(1152, 648)
+script = ExtResource("16_yocgf")
+EyeColorPicker_2 = NodePath("Border/Container/Links/Farbe1/HBoxContainer/2EyeColorPicker")
+BodyColorPicker_2 = NodePath("Border/Container/Links/Farbe2/HBoxContainer/2BodyColorPicker")
+BodyDetailPicker1_2 = NodePath("Border/Container/Rechts/Farbe3/HBoxContainer/2BodyDetailPicker1")
+BodyDetailPicker2_2 = NodePath("Border/Container/Rechts/Farbe4/HBoxContainer/2BodyDetailPicker2")
+
+[node name="Border" type="ColorRect" parent="GamePanel/StartScreen/CharacterEditCharakter2"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.32549, 0.654902, 0.309804, 1)
+
+[node name="Container" type="ColorRect" parent="GamePanel/StartScreen/CharacterEditCharakter2/Border"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -571.0
+offset_top = -319.0
+offset_right = 571.0
+offset_bottom = 319.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0470588, 0.0470588, 0.0470588, 1)
+
+[node name="MapLabel" type="Label" parent="GamePanel/StartScreen/CharacterEditCharakter2/Border/Container"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -216.0
+offset_top = -129.0
+offset_right = 216.0
+offset_bottom = -86.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_26pww")
+theme_override_font_sizes/font_size = 40
+text = "Edit Character 2:"
+horizontal_alignment = 1
+
+[node name="Links" type="VBoxContainer" parent="GamePanel/StartScreen/CharacterEditCharakter2/Border/Container"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 300.5
+offset_right = 357.0
+offset_bottom = 434.5
+
+[node name="Farbe1" type="MarginContainer" parent="GamePanel/StartScreen/CharacterEditCharakter2/Border/Container/Links"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GamePanel/StartScreen/CharacterEditCharakter2/Border/Container/Links/Farbe1"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="GamePanel/StartScreen/CharacterEditCharakter2/Border/Container/Links/Farbe1/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_26pww")
+theme_override_font_sizes/font_size = 45
+text = "Eye Color"
+
+[node name="2EyeColorPicker" type="ColorPickerButton" parent="GamePanel/StartScreen/CharacterEditCharakter2/Border/Container/Links/Farbe1/HBoxContainer"]
+layout_mode = 2
+text = "llllllllI"
+color = Color(1, 1, 1, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="GamePanel/StartScreen/CharacterEditCharakter2/Border/Container/Links"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Farbe2" type="MarginContainer" parent="GamePanel/StartScreen/CharacterEditCharakter2/Border/Container/Links"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GamePanel/StartScreen/CharacterEditCharakter2/Border/Container/Links/Farbe2"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="GamePanel/StartScreen/CharacterEditCharakter2/Border/Container/Links/Farbe2/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_26pww")
+theme_override_font_sizes/font_size = 45
+text = "Body Color"
+
+[node name="2BodyColorPicker" type="ColorPickerButton" parent="GamePanel/StartScreen/CharacterEditCharakter2/Border/Container/Links/Farbe2/HBoxContainer"]
+layout_mode = 2
+text = "llllllllI"
+color = Color(1, 0.85098, 0, 1)
+
+[node name="Rechts" type="VBoxContainer" parent="GamePanel/StartScreen/CharacterEditCharakter2/Border/Container"]
+layout_mode = 0
+offset_left = 757.0
+offset_top = 300.5
+offset_right = 1049.0
+offset_bottom = 434.5
+
+[node name="Farbe3" type="MarginContainer" parent="GamePanel/StartScreen/CharacterEditCharakter2/Border/Container/Rechts"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GamePanel/StartScreen/CharacterEditCharakter2/Border/Container/Rechts/Farbe3"]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="GamePanel/StartScreen/CharacterEditCharakter2/Border/Container/Rechts/Farbe3/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_26pww")
+theme_override_font_sizes/font_size = 45
+text = "Body Detail"
+
+[node name="2BodyDetailPicker1" type="ColorPickerButton" parent="GamePanel/StartScreen/CharacterEditCharakter2/Border/Container/Rechts/Farbe3/HBoxContainer"]
+layout_mode = 2
+text = "llllllllI"
+color = Color(1, 0.435294, 0, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="GamePanel/StartScreen/CharacterEditCharakter2/Border/Container/Rechts"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Farbe4" type="MarginContainer" parent="GamePanel/StartScreen/CharacterEditCharakter2/Border/Container/Rechts"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GamePanel/StartScreen/CharacterEditCharakter2/Border/Container/Rechts/Farbe4"]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="GamePanel/StartScreen/CharacterEditCharakter2/Border/Container/Rechts/Farbe4/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_26pww")
+theme_override_font_sizes/font_size = 45
+text = "Body Detail"
+
+[node name="2BodyDetailPicker2" type="ColorPickerButton" parent="GamePanel/StartScreen/CharacterEditCharakter2/Border/Container/Rechts/Farbe4/HBoxContainer"]
+layout_mode = 2
+text = "llllllllI"
+
+[node name="ContinueButton2" type="Button" parent="GamePanel/StartScreen/CharacterEditCharakter2/Border/Container"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -209.0
+offset_top = 181.0
+offset_right = 191.0
+offset_bottom = 281.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_f8uqq")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = ExtResource("3_458e6")
+theme_override_styles/hover = ExtResource("4_wudbp")
+text = "SAVE"
+
+[node name="Charakter2" type="AnimatedSprite2D" parent="GamePanel/StartScreen/CharacterEditCharakter2/Border/Container"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_4s0hf")
+position = Vector2(555, 366.5)
+scale = Vector2(7, 7)
+sprite_frames = SubResource("SpriteFrames_twp0s")
+script = ExtResource("21_o3sib")
+
+[node name="CloseButtonCharakterEdit2" type="Button" parent="GamePanel/StartScreen/CharacterEditCharakter2"]
+anchors_preset = -1
+anchor_left = 0.930556
+anchor_right = 1.0
+anchor_bottom = 0.123457
+offset_left = -5.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = 5.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_26pww")
+theme_override_font_sizes/font_size = 50
+text = "x"
+metadata/_edit_use_anchors_ = true
+
+[node name="GameMusic" type="Node2D" parent="."]
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="GameMusic"]
+stream = ExtResource("16_d2sbf")
+
+[node name="ButtonClick_SFX" type="AudioStreamPlayer" parent="GameMusic"]
+stream = ExtResource("17_mngfd")
+
+[connection signal="pressed" from="GamePanel/StartScreen/NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="GamePanel/StartScreen/ExitGameButton" to="." method="_on_exit_game_button_pressed"]
+[connection signal="pressed" from="GamePanel/StartScreen/GameInfoButton" to="." method="_on_game_info_button_pressed"]
+[connection signal="pressed" from="GamePanel/StartScreen/GameInfoScreen/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="GamePanel/StartScreen/MapSizePopup/Border/Container/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="GamePanel/StartScreen/MapSizePopup/Border/Container/CloseButtonMapSize" to="." method="_on_close_button_map_size_pressed"]
+[connection signal="pressed" from="GamePanel/StartScreen/GameModePopup/Border/Container/NormalModeButton" to="." method="_on_normal_mode_button_pressed"]
+[connection signal="pressed" from="GamePanel/StartScreen/GameModePopup/Border/Container/BattleModeButton" to="." method="_on_battle_mode_button_pressed"]
+[connection signal="pressed" from="GamePanel/StartScreen/GameModePopup/Border/Container/CloseButtonGameMode" to="." method="_on_close_button_game_mode_pressed"]
+[connection signal="color_changed" from="GamePanel/StartScreen/CharacterEditCharakter1/Border/Container/Links/Farbe1/HBoxContainer/1EyeColorPicker" to="GamePanel/StartScreen/CharacterEditCharakter1/Border/Container/Charakter1" method="_on_eye_color_picker_color_changed"]
+[connection signal="picker_created" from="GamePanel/StartScreen/CharacterEditCharakter1/Border/Container/Links/Farbe1/HBoxContainer/1EyeColorPicker" to="GamePanel/StartScreen/CharacterEditCharakter1" method="_on_eye_color_picker_picker_created"]
+[connection signal="pressed" from="GamePanel/StartScreen/CharacterEditCharakter1/Border/Container/Links/Farbe1/HBoxContainer/1EyeColorPicker" to="GamePanel/StartScreen/CharacterEditCharakter1" method="_on_eye_color_picker_pressed"]
+[connection signal="color_changed" from="GamePanel/StartScreen/CharacterEditCharakter1/Border/Container/Links/Farbe2/HBoxContainer/1BodyColorPicker" to="GamePanel/StartScreen/CharacterEditCharakter1/Border/Container/Charakter1" method="_on_body_color_picker_color_changed"]
+[connection signal="picker_created" from="GamePanel/StartScreen/CharacterEditCharakter1/Border/Container/Links/Farbe2/HBoxContainer/1BodyColorPicker" to="GamePanel/StartScreen/CharacterEditCharakter1" method="_on_body_color_picker_picker_created"]
+[connection signal="pressed" from="GamePanel/StartScreen/CharacterEditCharakter1/Border/Container/Links/Farbe2/HBoxContainer/1BodyColorPicker" to="GamePanel/StartScreen/CharacterEditCharakter1" method="_on_body_color_picker_pressed"]
+[connection signal="color_changed" from="GamePanel/StartScreen/CharacterEditCharakter1/Border/Container/Rechts/Farbe3/HBoxContainer/1BodyDetailPicker1" to="GamePanel/StartScreen/CharacterEditCharakter1/Border/Container/Charakter1" method="_on_body_detail_picker_1_color_changed"]
+[connection signal="picker_created" from="GamePanel/StartScreen/CharacterEditCharakter1/Border/Container/Rechts/Farbe3/HBoxContainer/1BodyDetailPicker1" to="GamePanel/StartScreen/CharacterEditCharakter1" method="_on_body_detail_picker_1_picker_created"]
+[connection signal="pressed" from="GamePanel/StartScreen/CharacterEditCharakter1/Border/Container/Rechts/Farbe3/HBoxContainer/1BodyDetailPicker1" to="GamePanel/StartScreen/CharacterEditCharakter1" method="_on_body_detail_picker_1_pressed"]
+[connection signal="color_changed" from="GamePanel/StartScreen/CharacterEditCharakter1/Border/Container/Rechts/Farbe4/HBoxContainer/1BodyDetailPicker2" to="GamePanel/StartScreen/CharacterEditCharakter1/Border/Container/Charakter1" method="_on_body_detail_picker_2_color_changed"]
+[connection signal="picker_created" from="GamePanel/StartScreen/CharacterEditCharakter1/Border/Container/Rechts/Farbe4/HBoxContainer/1BodyDetailPicker2" to="GamePanel/StartScreen/CharacterEditCharakter1" method="_on_body_detail_picker_2_picker_created"]
+[connection signal="pressed" from="GamePanel/StartScreen/CharacterEditCharakter1/Border/Container/Rechts/Farbe4/HBoxContainer/1BodyDetailPicker2" to="GamePanel/StartScreen/CharacterEditCharakter1" method="_on_body_detail_picker_2_pressed"]
+[connection signal="pressed" from="GamePanel/StartScreen/CharacterEditCharakter1/Border/Container/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="GamePanel/StartScreen/CharacterEditCharakter1/CloseButtonCharakterEdit1" to="." method="_on_close_button_charakter_edit_1_pressed"]
+[connection signal="color_changed" from="GamePanel/StartScreen/CharacterEditCharakter2/Border/Container/Links/Farbe1/HBoxContainer/2EyeColorPicker" to="GamePanel/StartScreen/CharacterEditCharakter2/Border/Container/Charakter2" method="_on_eye_color_picker_color_changed"]
+[connection signal="picker_created" from="GamePanel/StartScreen/CharacterEditCharakter2/Border/Container/Links/Farbe1/HBoxContainer/2EyeColorPicker" to="GamePanel/StartScreen/CharacterEditCharakter2" method="_on_eye_color_picker_picker_created"]
+[connection signal="pressed" from="GamePanel/StartScreen/CharacterEditCharakter2/Border/Container/Links/Farbe1/HBoxContainer/2EyeColorPicker" to="GamePanel/StartScreen/CharacterEditCharakter2" method="_on_eye_color_picker_pressed"]
+[connection signal="color_changed" from="GamePanel/StartScreen/CharacterEditCharakter2/Border/Container/Links/Farbe2/HBoxContainer/2BodyColorPicker" to="GamePanel/StartScreen/CharacterEditCharakter2/Border/Container/Charakter2" method="_on_body_color_picker_color_changed"]
+[connection signal="picker_created" from="GamePanel/StartScreen/CharacterEditCharakter2/Border/Container/Links/Farbe2/HBoxContainer/2BodyColorPicker" to="GamePanel/StartScreen/CharacterEditCharakter2" method="_on_body_color_picker_picker_created"]
+[connection signal="pressed" from="GamePanel/StartScreen/CharacterEditCharakter2/Border/Container/Links/Farbe2/HBoxContainer/2BodyColorPicker" to="GamePanel/StartScreen/CharacterEditCharakter2" method="_on_body_color_picker_pressed"]
+[connection signal="color_changed" from="GamePanel/StartScreen/CharacterEditCharakter2/Border/Container/Rechts/Farbe3/HBoxContainer/2BodyDetailPicker1" to="GamePanel/StartScreen/CharacterEditCharakter2/Border/Container/Charakter2" method="_on_body_detail_picker_1_color_changed"]
+[connection signal="picker_created" from="GamePanel/StartScreen/CharacterEditCharakter2/Border/Container/Rechts/Farbe3/HBoxContainer/2BodyDetailPicker1" to="GamePanel/StartScreen/CharacterEditCharakter2" method="_on_body_detail_picker_1_picker_created"]
+[connection signal="pressed" from="GamePanel/StartScreen/CharacterEditCharakter2/Border/Container/Rechts/Farbe3/HBoxContainer/2BodyDetailPicker1" to="GamePanel/StartScreen/CharacterEditCharakter2" method="_on_body_detail_picker_1_pressed"]
+[connection signal="color_changed" from="GamePanel/StartScreen/CharacterEditCharakter2/Border/Container/Rechts/Farbe4/HBoxContainer/2BodyDetailPicker2" to="GamePanel/StartScreen/CharacterEditCharakter2/Border/Container/Charakter2" method="_on_body_detail_picker_2_color_changed"]
+[connection signal="picker_created" from="GamePanel/StartScreen/CharacterEditCharakter2/Border/Container/Rechts/Farbe4/HBoxContainer/2BodyDetailPicker2" to="GamePanel/StartScreen/CharacterEditCharakter2" method="_on_body_detail_picker_2_picker_created"]
+[connection signal="pressed" from="GamePanel/StartScreen/CharacterEditCharakter2/Border/Container/Rechts/Farbe4/HBoxContainer/2BodyDetailPicker2" to="GamePanel/StartScreen/CharacterEditCharakter2" method="_on_body_detail_picker_2_pressed"]
+[connection signal="pressed" from="GamePanel/StartScreen/CharacterEditCharakter2/Border/Container/ContinueButton2" to="." method="_on_continue_button_2_pressed"]
+[connection signal="pressed" from="GamePanel/StartScreen/CharacterEditCharakter2/CloseButtonCharakterEdit2" to="." method="_on_close_button_charakter_edit_2_pressed"]

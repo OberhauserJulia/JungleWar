@@ -1,0 +1,232 @@
+[gd_scene load_steps=14 format=3 uid="uid://dhktk61cdprve"]
+
+[ext_resource type="Script" path="res://Scripts/CharacterEdit.gd" id="1_g4dv5"]
+[ext_resource type="FontFile" uid="uid://digbq0mlkbh3p" path="res://Assets/fonts/Schrödinger.ttf" id="2_861pf"]
+[ext_resource type="FontFile" uid="uid://ds7hjvwew2ekh" path="res://Assets/fonts/Covenant5x5.ttf" id="2_p0n6p"]
+[ext_resource type="Texture2D" uid="uid://d4q5f2y1f66v" path="res://Assets/players/char_01/base.png" id="3_46csq"]
+[ext_resource type="StyleBox" uid="uid://hcnj7aqujk4r" path="res://Themes/Normal_Button_Style.tres" id="3_ad8j5"]
+[ext_resource type="StyleBox" uid="uid://kj0aqmit2b4n" path="res://Themes/Hover_Button_Style.tres" id="4_vwihe"]
+[ext_resource type="Script" path="res://Scripts/Character1.gd" id="4_xbeq1"]
+[ext_resource type="Shader" path="res://Shader/Player1Shader.gdshader" id="5_d6e3t"]
+[ext_resource type="Texture2D" uid="uid://k0h8x5a3euse" path="res://Assets/players/char_01/down_1.png" id="7_g463g"]
+[ext_resource type="Texture2D" uid="uid://bs6631okrwr7c" path="res://Assets/players/char_01/down_2.png" id="8_n7fwx"]
+[ext_resource type="Texture2D" uid="uid://5q1socbhyiyo" path="res://Assets/players/char_01/down_3.png" id="9_w5rbv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vhvto"]
+shader = ExtResource("5_d6e3t")
+shader_parameter/newColorBody = Color(1, 1, 1, 1)
+shader_parameter/oldColorBody = Color(1, 1, 1, 1)
+shader_parameter/newColorEyes = Color(0.235294, 0.737255, 1, 1)
+shader_parameter/oldColorEyes = Color(0.235294, 0.737255, 1, 1)
+shader_parameter/newColor1 = Color(0.972549, 0.470588, 0.345098, 1)
+shader_parameter/oldColor1 = Color(0.972549, 0.470588, 0.345098, 1)
+shader_parameter/newColor2 = Color(0, 0, 0, 1)
+shader_parameter/oldColor2 = Color(0, 0, 0, 1)
+shader_parameter/precision = 0.1
+shader_parameter/onlyPickMainColor = null
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0gopm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_46csq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_g463g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_n7fwx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_w5rbv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Color Picker Menu" type="Node2D"]
+
+[node name="CharacterEditCharakter1" type="CanvasLayer" parent="." node_paths=PackedStringArray("EyeColorPicker_1", "BodyColorPicker_1", "BodyDetailPicker1_1", "BodyDetailPicker2_1")]
+script = ExtResource("1_g4dv5")
+EyeColorPicker_1 = NodePath("Border/Container/Links/Farbe1/HBoxContainer/1EyeColorPicker")
+BodyColorPicker_1 = NodePath("Border/Container/Links/Farbe2/HBoxContainer/1BodyColorPicker")
+BodyDetailPicker1_1 = NodePath("Border/Container/Rechts/Farbe3/HBoxContainer/1BodyDetailPicker1")
+BodyDetailPicker2_1 = NodePath("Border/Container/Rechts/Farbe4/HBoxContainer/1BodyDetailPicker2")
+
+[node name="Border" type="ColorRect" parent="CharacterEditCharakter1"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.972549, 0.690196, 0.25098, 1)
+
+[node name="Container" type="ColorRect" parent="CharacterEditCharakter1/Border"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -571.0
+offset_top = -319.0
+offset_right = 571.0
+offset_bottom = 319.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0470588, 0.0470588, 0.0470588, 1)
+
+[node name="MapLabel" type="Label" parent="CharacterEditCharakter1/Border/Container"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -216.0
+offset_top = -129.0
+offset_right = 216.0
+offset_bottom = -86.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_861pf")
+theme_override_font_sizes/font_size = 40
+text = "Edit Character 1:"
+horizontal_alignment = 1
+
+[node name="Links" type="VBoxContainer" parent="CharacterEditCharakter1/Border/Container"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 300.5
+offset_right = 357.0
+offset_bottom = 434.5
+
+[node name="Farbe1" type="MarginContainer" parent="CharacterEditCharakter1/Border/Container/Links"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CharacterEditCharakter1/Border/Container/Links/Farbe1"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CharacterEditCharakter1/Border/Container/Links/Farbe1/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_861pf")
+theme_override_font_sizes/font_size = 45
+text = "Eye Color"
+
+[node name="1EyeColorPicker" type="ColorPickerButton" parent="CharacterEditCharakter1/Border/Container/Links/Farbe1/HBoxContainer"]
+layout_mode = 2
+text = "lllll"
+color = Color(0.235294, 0.737255, 1, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="CharacterEditCharakter1/Border/Container/Links"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Farbe2" type="MarginContainer" parent="CharacterEditCharakter1/Border/Container/Links"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CharacterEditCharakter1/Border/Container/Links/Farbe2"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="CharacterEditCharakter1/Border/Container/Links/Farbe2/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_861pf")
+theme_override_font_sizes/font_size = 45
+text = "Body Color"
+
+[node name="1BodyColorPicker" type="ColorPickerButton" parent="CharacterEditCharakter1/Border/Container/Links/Farbe2/HBoxContainer"]
+layout_mode = 2
+text = "lllll"
+color = Color(1, 1, 1, 1)
+
+[node name="Rechts" type="VBoxContainer" parent="CharacterEditCharakter1/Border/Container"]
+layout_mode = 0
+offset_left = 757.0
+offset_top = 300.5
+offset_right = 1049.0
+offset_bottom = 434.5
+
+[node name="Farbe3" type="MarginContainer" parent="CharacterEditCharakter1/Border/Container/Rechts"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CharacterEditCharakter1/Border/Container/Rechts/Farbe3"]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="CharacterEditCharakter1/Border/Container/Rechts/Farbe3/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_861pf")
+theme_override_font_sizes/font_size = 45
+text = "Body Detail"
+
+[node name="1BodyDetailPicker1" type="ColorPickerButton" parent="CharacterEditCharakter1/Border/Container/Rechts/Farbe3/HBoxContainer"]
+layout_mode = 2
+text = "lllll"
+color = Color(0.972549, 0.470588, 0.345098, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="CharacterEditCharakter1/Border/Container/Rechts"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Farbe4" type="MarginContainer" parent="CharacterEditCharakter1/Border/Container/Rechts"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CharacterEditCharakter1/Border/Container/Rechts/Farbe4"]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="CharacterEditCharakter1/Border/Container/Rechts/Farbe4/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_861pf")
+theme_override_font_sizes/font_size = 45
+text = "Body Detail"
+
+[node name="1BodyDetailPicker2" type="ColorPickerButton" parent="CharacterEditCharakter1/Border/Container/Rechts/Farbe4/HBoxContainer"]
+layout_mode = 2
+text = "lllll"
+
+[node name="ContinueButton" type="Button" parent="CharacterEditCharakter1/Border/Container"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -209.0
+offset_top = 181.0
+offset_right = 191.0
+offset_bottom = 281.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_p0n6p")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = ExtResource("3_ad8j5")
+theme_override_styles/hover = ExtResource("4_vwihe")
+text = "SAVE"
+
+[node name="Character1" type="AnimatedSprite2D" parent="CharacterEditCharakter1/Border/Container"]
+texture_filter = 1
+material = SubResource("ShaderMaterial_vhvto")
+position = Vector2(555, 366.5)
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_0gopm")
+script = ExtResource("4_xbeq1")
+
+[connection signal="color_changed" from="CharacterEditCharakter1/Border/Container/Links/Farbe1/HBoxContainer/1EyeColorPicker" to="CharacterEditCharakter1/Border/Container/Character1" method="_on_eye_color_picker_color_changed"]
+[connection signal="picker_created" from="CharacterEditCharakter1/Border/Container/Links/Farbe1/HBoxContainer/1EyeColorPicker" to="CharacterEditCharakter1" method="_on_eye_color_picker_picker_created"]
+[connection signal="pressed" from="CharacterEditCharakter1/Border/Container/Links/Farbe1/HBoxContainer/1EyeColorPicker" to="CharacterEditCharakter1" method="_on_eye_color_picker_pressed"]
+[connection signal="color_changed" from="CharacterEditCharakter1/Border/Container/Links/Farbe2/HBoxContainer/1BodyColorPicker" to="CharacterEditCharakter1/Border/Container/Character1" method="_on_body_color_picker_color_changed"]
+[connection signal="picker_created" from="CharacterEditCharakter1/Border/Container/Links/Farbe2/HBoxContainer/1BodyColorPicker" to="CharacterEditCharakter1" method="_on_body_color_picker_picker_created"]
+[connection signal="pressed" from="CharacterEditCharakter1/Border/Container/Links/Farbe2/HBoxContainer/1BodyColorPicker" to="CharacterEditCharakter1" method="_on_body_color_picker_pressed"]
+[connection signal="color_changed" from="CharacterEditCharakter1/Border/Container/Rechts/Farbe3/HBoxContainer/1BodyDetailPicker1" to="CharacterEditCharakter1/Border/Container/Character1" method="_on_body_detail_picker_1_color_changed"]
+[connection signal="picker_created" from="CharacterEditCharakter1/Border/Container/Rechts/Farbe3/HBoxContainer/1BodyDetailPicker1" to="CharacterEditCharakter1" method="_on_body_detail_picker_1_picker_created"]
+[connection signal="pressed" from="CharacterEditCharakter1/Border/Container/Rechts/Farbe3/HBoxContainer/1BodyDetailPicker1" to="CharacterEditCharakter1" method="_on_body_detail_picker_1_pressed"]
+[connection signal="color_changed" from="CharacterEditCharakter1/Border/Container/Rechts/Farbe4/HBoxContainer/1BodyDetailPicker2" to="CharacterEditCharakter1/Border/Container/Character1" method="_on_body_detail_picker_2_color_changed"]
+[connection signal="picker_created" from="CharacterEditCharakter1/Border/Container/Rechts/Farbe4/HBoxContainer/1BodyDetailPicker2" to="CharacterEditCharakter1" method="_on_body_detail_picker_2_picker_created"]
+[connection signal="pressed" from="CharacterEditCharakter1/Border/Container/Rechts/Farbe4/HBoxContainer/1BodyDetailPicker2" to="CharacterEditCharakter1" method="_on_body_detail_picker_2_pressed"]
